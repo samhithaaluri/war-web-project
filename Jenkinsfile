@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven363'
+        maven 'Maven'
     }
     options {
         timeout(10)
@@ -33,15 +33,13 @@ pipeline {
             }
         }
     }
-    post {
-        always{
-            deleteDir()
+
+        post{
+                success{
+                        emailext attachLog: true, body: 'pipeline success', recipientProviders: [buildUser()], subject: 'success', to: 'samhithaaluri@gmail.com'
+                }
+                failure{
+                        emailext attachLog: true, body: 'pipeline failed', recipientProviders: [buildUser()], subject: 'failed', to: 'samhithaaluri@gmail.com'
+                }
         }
-        failure {
-            echo "sendmail -s mvn build failed receipients@my.com"
-        }
-        success {
-            echo "The job is successful"
-        }
-    }
 }
