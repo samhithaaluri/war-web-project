@@ -34,12 +34,4 @@ pipeline {
         }
     }
 
-        post{
-                success{
-                        emailext attachLog: true, body: 'pipeline success', recipientProviders: [buildUser()], subject: 'success', to: 'samhithaaluri@gmail.com'
-                }
-                failure{
-                        emailext attachLog: true, body: 'pipeline failed', recipientProviders: [buildUser()], subject: 'failed', to: 'samhithaaluri@gmail.com'
-                }
-        }
 }
