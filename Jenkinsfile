@@ -13,8 +13,8 @@ pipeline {
                 sh "mvn clean install"
             }
         }
-        stage('upload artifact to nexus') {
-            steps {
+        /*stage('upload artifact to nexus') {
+            #steps {
                 nexusArtifactUploader artifacts: [
                     [
                         artifactId: 'wwp', 
@@ -31,6 +31,9 @@ pipeline {
                     repository: 'samplerepo', 
                     version: '1.0.0'
             }
+        }*/
+        stage('deploy to tomcat'){
+            
         }
     }
 
