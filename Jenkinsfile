@@ -31,14 +31,14 @@ pipeline {
                     repository: 'samplerepo', 
                     version: '1.0.0'
             }
-        }*/
+        }
         stage('deploy to tomcat'){
             steps{
             sshagent(['c7f8eace-79f4-4de2-b211-fa1ae2f1fd38']) {
             sh "scp tomcat/target/wwp-1.0.0.war ubuntu@18.191.168.86:/apache-tomcat-9.0.78/webapps"
             }
 }
-        }
+        }*/
     }
 
 }
