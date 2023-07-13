@@ -34,7 +34,7 @@ pipeline {
         }*/
         stage('deploy to tomcat'){
         steps{
-deploy adapters: [tomcat10(credentialsId: 'fb27284f-7d67-4c9a-8cd0-1450df47fd64', path: '', url: 'http://3.144.235.243:8080/')], contextPath: null, war: '**/*.war'
+deploy adapters: [tomcat9(credentialsId: 'fb27284f-7d67-4c9a-8cd0-1450df47fd64', path: '', url: 'http://3.144.235.243:8080/')], contextPath: null, war: '**/*.war'
     }
 }
 }
