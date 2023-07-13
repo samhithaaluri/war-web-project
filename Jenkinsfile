@@ -34,8 +34,7 @@ pipeline {
         }*/
         stage('deploy to tomcat'){
         steps{
-        sshagent(['0f920772-7516-4854-a414-71d1e2d72dee']) {
-    sh "scp -o StrictHostKeyChecking=no target/wwp-1.0.0.war ubuntu@3.144.235.243:/opt/tomcat/webapps"
+deploy adapters: [tomcat10(credentialsId: 'fb27284f-7d67-4c9a-8cd0-1450df47fd64', path: '', url: 'http://3.144.235.243:8080/')], contextPath: null, war: '**/*.war'
     }
 }
 }
