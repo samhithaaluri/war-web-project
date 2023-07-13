@@ -40,5 +40,3 @@ deploy adapters: [tomcat10(credentialsId: 'fb27284f-7d67-4c9a-8cd0-1450df47fd64'
 }
 
     }
-
-}
